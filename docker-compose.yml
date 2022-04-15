@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+
+    app:
+        build: app
+
+    calc:
+        build: calc
+
+    soma:
+        build: soma
+
+    sub:
+        build: sub
+
+    mult:
+        build: mult
+
+    nginx:
+        container_name: nginx
+        build: nginx
+        ports:
+            - 80:80
+        depends_on:
+           - app
+           - calc
+           - soma
+           - sub
+           - mult
